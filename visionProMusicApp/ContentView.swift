@@ -31,6 +31,7 @@ struct ContentView: View {
             SideBarView()
         } detail : {
           // Album View
+            AlbumView()
             
         }
     }
@@ -63,6 +64,30 @@ struct SideBarView: View {
             ToolbarItem {
                 Button(action: {}, label: {
                     Image(systemName: "ellipsis")
+                })
+            }
+        }
+    }
+}
+
+struct AlbumView: View {
+    @State private var searchText: String = ""
+    
+    var body: some View {
+        ScrollView {
+            TextField("Search in Albums", text: $searchText)
+        }.toolbar {
+            ToolbarItemGroup(placement: .topBarLeading) {
+                VStack (alignment: .leading) {
+                    Text("Albums")
+                        .font(.largeTitle)
+                    Text("48 songs")
+                        .foregroundStyle(.tertiary)
+                }
+            }
+            ToolbarItem {
+                Button(action: {}, label : {
+                    Image(systemName: "line.3.horizontal.decrease")
                 })
             }
         }
