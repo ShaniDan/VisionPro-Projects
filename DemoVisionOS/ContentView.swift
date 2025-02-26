@@ -11,6 +11,8 @@ import RealityKitContent
 
 struct ContentView: View {
 
+    @State private var isGlassBackgroundShown: Bool = true
+    
     var body: some View {
         VStack {
 //            Model3D(named: "Scene", bundle: realityKitContentBundle)
@@ -22,6 +24,8 @@ struct ContentView: View {
                 .padding(.bottom, 50)
                 
             Text("Hello, world!")
+            
+            Toggle("Glass background", isOn: $isGlassBackgroundShown)
 
 //            ToggleImmersiveSpaceButton()
         }
